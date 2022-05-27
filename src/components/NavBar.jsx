@@ -63,11 +63,17 @@ const NavBar = () => {
             <MenuItem>
             <LanguageOutlined style ={{fontSize:20}}/>
             </MenuItem>
-            <MenuItem> Sign In</MenuItem>
+            <Link to ='/login' style={{textDecoration:'none',color:'black'}}>
+                <MenuItem> Sign In</MenuItem>
+            </Link>
+            <Link to ='/register' style={{textDecoration:'none',color:'black'}}>
             <MenuItem> Register</MenuItem>
+            </Link>
+            <Link to ='/cart' style={{textDecoration:'none',color:'black'}}>
             <MenuItem>
                 <ShoppingCart/> 
             </MenuItem>
+            </Link>
         </Right>
         </Wrapper>
     </Container>
