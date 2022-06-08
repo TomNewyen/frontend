@@ -13,7 +13,7 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/uers",userRoute);
+app.use("/api/users",userRoute);
 app.use("/api/auth",authRoute);
 
 mongoose
