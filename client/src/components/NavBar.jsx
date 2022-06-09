@@ -4,6 +4,7 @@ import { Search } from '@mui/icons-material'
 import { ShoppingCart } from '@mui/icons-material'
 import { LanguageOutlined } from '@mui/icons-material'
 import {Link} from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const Container = styled.div`
     height: 60px;
     
@@ -46,6 +47,7 @@ const MenuItem= styled.div`
     margin-left: 25px;
 `
 const NavBar = () => {
+    const cart = useSelector(state => state.cart)
   return (
     <Container>
         <Wrapper>
