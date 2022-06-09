@@ -13,8 +13,8 @@ function App() {
   <Routes>
     
     <Route path='/' exact element={<Homepage />}/>
-    <Route path='/productpage' element={<ProductPage/>}/>
-    <Route path='/product' element={<Product/>}/>
+    <Route path='/productpage/:category' element={<ProductPage/>}/>
+    <Route path='/product/:id' element={<Product/>}/>
     <Route path='/cart' element={<Cart/>}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/register' element={<Register/>}/>

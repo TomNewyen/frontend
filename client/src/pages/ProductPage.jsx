@@ -4,6 +4,8 @@ import NavBar from '../components/NavBar'
 import Product from "../components/Product";
 import EmailBox from "../components/EmailBox";
 import Footer from "../components/Footer";
+import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 const Container = styled.div``;
 
 const Title = styled.h1`
@@ -34,15 +36,27 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 const ProductPage = () => {
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
+  const [filters, setFilters] = useState({});
+  const [sort, setSort] = useState("newest");
+
+  const handleFilters = (e) => {
+    const value = e.target.value;
+    setFilters({
+      ...filters,
+      [e.target.name]: value,
+    });
+  };
   return (
     <Container>
       <NavBar />
-      <Title>Products</Title>
+      <Title>{cat}</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter</FilterText>
-          <Select>
-            <Option disabled selected>
+          <Select name="color" onChange={handleFilters}>
+            <Option disabled >
               Color
             </Option>
             <Option>White</Option>
@@ -52,8 +66,8 @@ const ProductPage = () => {
             <Option>Yellow</Option>
             <Option>Green</Option>
           </Select>
-          <Select>
-            <Option disabled selected>
+          <Select name="size" onChange={handleFilters}>
+            <Option disabled >
               Size
             </Option>
             <Option>XS</Option>
@@ -65,14 +79,14 @@ const ProductPage = () => {
         </Filter>
         <Filter>
           <FilterText>Sort Product:</FilterText>
-          <Select>
-            <Option selected>Newest</Option>
+          <Select onChange={(e) => setSort(e.target.value)}>
+            <Option >Newest</Option>
             <Option>Price (asc)</Option>
             <Option>Price (desc)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <Product />
+      <Product cat={cat} filters={filters} sort={sort} />
       <EmailBox />
       <Footer />
     </Container>

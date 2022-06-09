@@ -1,6 +1,6 @@
 export const sliderItems = [{
         id: 1,
-        img: "https://nguoinoitieng.tv/images/nnt/96/0/bbh0.jpg",
+        img: "https://www.dior.com/couture/var/dior/storage/images/pushs-editos/folder-men-spring-2021/1voba088yky_h28e_e12_gh/21663650-1-fre-FR/1voba088yky_h28e_e12_gh_1440_1200.jpg",
         title: "Tom n Jerry",
         desc: "AN OLD POPULAR CARTOON",
         bg: "f5fafd",
@@ -23,51 +23,54 @@ export const sliderItems = [{
 
 export const categories = [{
         id: 1,
-        img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        img: "https://www.dior.com/couture/var/dior/storage/images/pushs-editos/folder-fall-22-men/folder-campagne-cuir/1adpo033lach00n/32933938-1-eng-GB/1adpo033lach00n_1440_1200.jpg",
         title: "SHIRT STYLE!",
+        cat: "men"
     },
     {
         id: 2,
-        img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        img: "https://www.dior.com/couture/var/dior/storage/images/pushs-editos/folder-fall-22-men/folder-campagne-cuir/1adpo130broh31e/32933964-1-eng-GB/1adpo130broh31e_1440_1200.jpg",
         title: "LOUNGEWEAR LOVE",
+        cat: "women"
     },
     {
         id: 3,
-        img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        img: "https://www.dior.com/couture/var/dior/storage/images/pushs-editos/folder-fall-22-men/folder-campagne-rtw-acc/stxls2uxr10a0/32977977-1-eng-GB/stxls2uxr10a0_1440_1200.jpg",
         title: "LIGHT JACKETS",
+        cat: "lgbt"
     },
 ];
 
 export const popularProducts = [{
         id: 1,
-        img: "https://nguoinoitieng.tv/images/nnt/96/0/bbh0.jpg",
+        img: "https://media.dior.com/img/en_vn/sku/couture/293J659A0554_C980_TXXS?imwidth=460",
     },
     {
         id: 2,
-        img: "https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+        img: "https://media.dior.com/img/en_vn/sku/couture/293C179A4717_C900_T64?imwidth=460",
     },
     {
         id: 3,
-        img: "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+        img: "https://media.dior.com/img/en_vn/sku/couture/193M638AT393_C581_TXXS?imwidth=460",
     },
     {
         id: 4,
-        img: "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+        img: "https://media.dior.com/img/en_vn/sku/couture/293M832AT396_C581_TXXS?imwidth=460",
     },
     {
         id: 5,
-        img: "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+        img: "https://media.dior.com/img/en_vn/sku/couture/213M640AT298_C988_TXXS?imwidth=460",
     },
     {
         id: 6,
-        img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+        img: "https://media.dior.com/img/en_vn/sku/couture/293J659A0554_C088_TXXS?imwidth=460",
     },
     {
         id: 7,
-        img: "https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+        img: "https://media.dior.com/img/en_vn/sku/couture/293C179A4717_C200_T64?imwidth=460",
     },
     {
         id: 8,
-        img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+        img: "https://media.dior.com/img/en_vn/sku/couture/3SN249ZPP_H169_T51?imwidth=460",
     },
 ]
