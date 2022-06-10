@@ -1,8 +1,8 @@
 export const sliderItems = [{
         id: 1,
         img: "https://www.dior.com/couture/var/dior/storage/images/pushs-editos/folder-men-spring-2021/1voba088yky_h28e_e12_gh/21663650-1-fre-FR/1voba088yky_h28e_e12_gh_1440_1200.jpg",
-        title: "Tom n Jerry",
-        desc: "AN OLD POPULAR CARTOON",
+        title: "MEN SUMMER COLLECTION",
+        desc: "THE BAG LOOK SUPER COOL JUST LIKE ALEXANDRE JOSEPH DE TOM ",
         bg: "f5fafd",
     },
     {

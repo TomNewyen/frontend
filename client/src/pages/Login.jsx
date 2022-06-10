@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import React from "react";
-
+import {login} from '../redux/apiCall'
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -8,12 +10,15 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://www.dior.com/couture/var/dior/storage/images/33869816/3-eng-HK/cdc-femme-dioriviera6_1440_1200.jpg")
       center;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+const Error = styled.span`
+  color: red;
 `;
 
 const Wrapper = styled.div`
@@ -48,6 +53,10 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
+  &:disabled{
+    color: green;
+    cursor: not-allowed;
+  }
 `;
 
 const Link = styled.a`
@@ -58,14 +67,25 @@ const Link = styled.a`
 `;
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch()
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    login(dispatch, { username, password });
+  };
   return (
     <Container>
       <Wrapper>
         <Title>SIGN IN</Title>
         <Form>
-          <Input placeholder="username" />
-          <Input placeholder="password" />
-          <Button>LOGIN</Button>
+          <Input placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)} />
+          <Input placeholder="Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}/>
+          <Button onClick={handleClick} >LOGIN</Button>
           <Link>DON'T REMEMBER THE PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
         </Form>
