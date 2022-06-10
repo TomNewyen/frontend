@@ -6,7 +6,8 @@ import {Add,Remove} from '@mui/icons-material'
 import styled from 'styled-components'
 import { publicRequest } from '../requestURL'
 import { useLocation } from 'react-router-dom'
-
+import {addProduct} from '../redux/cartRedux'
+import { useDispatch } from 'react-redux'
 
 const Container = styled.div``;
 
@@ -117,12 +118,12 @@ const Button = styled.button`
 `
 const Product = () => {
   const location = useLocation();
-  const id = location.pathname.split("/")[2];
+  const id = location.pathname.split("/")[2]
   const [product,setProduct] = useState({})
-  const [quantity, setQuantity] = useState(1);
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
-  
+  const [quantity, setQuantity] = useState(1)
+  const [color, setColor] = useState("")
+  const [size, setSize] = useState("")
+  const dispatch = useDispatch()
 
   useEffect(() =>{
     const getProduct = async () => {
@@ -143,7 +144,7 @@ const Product = () => {
   };
 
   const handleClick = () => {
-    
+    dispatch(addProduct({...product, quantity, color, size}))
   }
 
   
@@ -182,7 +183,7 @@ const Product = () => {
               <Amount>{quantity}</Amount>
               <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

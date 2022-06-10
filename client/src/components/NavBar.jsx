@@ -1,10 +1,22 @@
 import styled from 'styled-components'
 import React from 'react'
 import { Search } from '@mui/icons-material'
-import { ShoppingCart } from '@mui/icons-material'
 import { LanguageOutlined } from '@mui/icons-material'
 import {Link} from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      right: -3,
+      top: 13,
+      border: `2px solid`,
+      padding: '0 4px',
+    },
+  }));
+
 const Container = styled.div`
     height: 60px;
     
@@ -47,7 +59,9 @@ const MenuItem= styled.div`
     margin-left: 25px;
 `
 const NavBar = () => {
-    const cart = useSelector(state => state.cart)
+    const quantity = useSelector(state => state.cart.quantity)
+    
+
   return (
     <Container>
         <Wrapper>
@@ -73,7 +87,11 @@ const NavBar = () => {
             </Link>
             <Link to ='/cart' style={{textDecoration:'none',color:'black'}}>
             <MenuItem>
-                <ShoppingCart/> 
+                <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={quantity} color="secondary">
+                        <ShoppingCartIcon />
+                    </StyledBadge>
+                </IconButton> 
             </MenuItem>
             </Link>
         </Right>
