@@ -23,7 +23,6 @@ const Product = ({ cat,filters,sort }) => {
         cat ? `http://localhost:3001/server/products?category=${cat}`
             : "http://localhost:3001/server/products"
       )
-      console.log(res)
       setProducts(res.data)
     } catch (error) {}
   }

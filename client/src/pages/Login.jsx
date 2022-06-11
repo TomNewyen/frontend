@@ -69,6 +69,7 @@ const Link = styled.a`
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const {isFetching,error} = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
   const handleClick = (e) => {
@@ -85,7 +86,8 @@ const Login = () => {
           <Input placeholder="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}/>
-          <Button onClick={handleClick} >LOGIN</Button>
+          <Button onClick={handleClick} disabled={isFetching}>LOGIN</Button>
+          {error && <Error>Incorect information !!</Error>}
           <Link>DON'T REMEMBER THE PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
         </Form>
