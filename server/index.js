@@ -10,7 +10,7 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
-// const stripeRoute = require("./routes/stripe");
+const stripeRoute = require("./routes/stripe");
 
 dotenv.config();
 app.use(cors());
@@ -21,7 +21,7 @@ app.use("/server/auth", authRoute);
 app.use("/server/products", productRoute);
 app.use("/server/carts", cartRoute);
 app.use("/server/orders", orderRoute);
-// app.use("/server/checkout", stripeRoute);
+app.use("/server/checkout", stripeRoute);
 
 mongoose
     .connect(process.env.MONGO_URL)

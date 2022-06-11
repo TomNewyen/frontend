@@ -141,7 +141,7 @@ const Product = () => {
     } else {
       setQuantity(quantity + 1);
     }
-  };
+  }
 
   const handleClick = () => {
     dispatch(addProduct({...product, quantity, color, size}))
