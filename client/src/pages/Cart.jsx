@@ -151,32 +151,32 @@ const Button = styled.button`
   font-weight: 600;
 `;
 const Hr = styled.hr`
-  background-color: #eee;
+  background-color: black;
   border: none;
   height: 1px;
 `;
 
 const Cart = () => {
   const cart = useSelector(state => state.cart)
-  const history = useNavigate();
+  const foward = useNavigate
   const [stripeToken, setStripeToken] = useState(null)
   const onToken = (token) => {
     setStripeToken(token)
   }
-  //useEffect(() => {
-   // const makeRequest = async () => {
-     // try {
-    //    const res = await userRequest.post("/checkout/payment", {
-    //      tokenId: stripeToken.id,
-   //       amount: 500,
-    //    });
-    //    history.push("/success", {
-    //      stripeData: res.data,
-   //       products: cart, });
-  //    } catch {}
-  //  };
-  //  stripeToken && makeRequest();
-  //}, [stripeToken, cart.total, history]);
+  useEffect(() => {
+   const makeRequest = async () => {
+     try {
+       const res = await userRequest.post("/checkout/payment", {
+         tokenId: stripeToken.id,
+         amount: cart.total * 100,
+       });
+       foward.push("/success", { 
+         stripeData: res.data,
+          });
+     } catch {}
+   }; 
+   stripeToken && makeRequest();
+  }, [stripeToken, cart.total,foward]);
   return (
     <Container>
       <NavBar />
