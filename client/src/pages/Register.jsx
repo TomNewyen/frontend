@@ -68,7 +68,7 @@ const Link = styled.a`
   cursor: pointer;
 `;
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -101,4 +101,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
