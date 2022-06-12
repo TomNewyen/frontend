@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import React from "react";
+import {register} from '../redux/apiCall'
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
 
 const Container = styled.div`
@@ -8,16 +12,19 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://www.dior.com/couture/var/dior/storage/images/33869816/3-eng-HK/cdc-femme-dioriviera6_1440_1200.jpg")
       center;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
+const Error = styled.span`
+  color: red;
+`;
 
 const Wrapper = styled.div`
-  width: 40%;
+  width: 25%;
   padding: 20px;
   background-color: white;
   
@@ -30,19 +37,14 @@ const Title = styled.h1`
 
 const Form = styled.form`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 `;
 
 const Input = styled.input`
   flex: 1;
   min-width: 40%;
-  margin: 20px 10px 0px 0px;
+  margin: 10px 0;
   padding: 10px;
-`;
-
-const Agreement = styled.span`
-  font-size: 12px;
-  margin: 20px 0px;
 `;
 
 const Button = styled.button`
@@ -52,29 +54,51 @@ const Button = styled.button`
   background-color: teal;
   color: white;
   cursor: pointer;
+  margin-bottom: 10px;
+  &:disabled{
+    color: green;
+    cursor: not-allowed;
+  }
 `;
 
-const Register = () => {
+const Link = styled.a`
+  margin: 5px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
+const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const {isFetching,error} = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    register(dispatch, { username, email, password });
+  };
   return (
     <Container>
       <Wrapper>
-        <Title>CREATE AN ACCOUNT</Title>
+        <Title>Register</Title>
         <Form>
-          <Input placeholder="name" />
-          <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
-          <Input placeholder="confirm password" />
-          <Agreement>
-            By creating an account, blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
-            <b>PRIVACY POLICY</b>
-          </Agreement>
-          <Button>CREATE</Button>
+          <Input placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)} />
+          <Input placeholder="Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}/>
+          <Input placeholder="Email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}/>
+          <Button onClick={handleClick} disabled={isFetching}>Register</Button>
+          {error && <Error>Incorect information !!</Error>}
+          <Link>Already have an account? Login</Link>
         </Form>
       </Wrapper>
     </Container>
   );
 };
 
-export default Register;
+export default Login;
